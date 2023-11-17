@@ -1,5 +1,6 @@
 package com.movielover.movie;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,8 +23,18 @@ public class MovieController {
         return new ResponseEntity<Optional<Movie>>(movieService.movie(imdbId), HttpStatus.OK);
     }
 
+    @GetMapping("/id/{id}")
+    public ResponseEntity<Optional<Movie>>getMovieById(@PathVariable String id) {
+        return new ResponseEntity<>(movieService.getMovieById(id), HttpStatus.OK);
+    }
+
     @PostMapping
     public void addNewMovie(@RequestBody Movie movie) {
         movieService.addNewMovie(movie);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteMovie(@PathVariable String id) {
+       movieService.deleteMovie(id);
     }
 }

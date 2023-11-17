@@ -13,8 +13,13 @@ public class MovieService {
     public List<Movie> allMovies() {
         return movieRepository.findAll();
     }
+
     public Optional<Movie> movie(String imdbId) {
         return movieRepository.findMovieByImdbId(imdbId);
+    }
+
+    public Optional<Movie> getMovieById(String id) {
+        return movieRepository.findById(id);
     }
 
     public void addNewMovie(Movie movie) {
@@ -25,4 +30,16 @@ public class MovieService {
         // System.out.println(movie);
         movieRepository.save(movie);
     }
+
+    public void deleteMovie(String id) {
+        Optional<Movie> movie = movieRepository.findById(id);
+        if(!movie.isPresent()){
+            throw new IllegalStateException("Movie not found!");
+        }
+        movieRepository.deleteById(id);
+    }
+
+    //Update movie - use @Transactional annotation
+
+
 }
