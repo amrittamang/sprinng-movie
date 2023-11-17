@@ -1,4 +1,4 @@
-package com.movie;
+package com.movielover.review;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

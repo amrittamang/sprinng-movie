@@ -1,4 +1,4 @@
-package com.movie;
+package com.movielover.review;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
