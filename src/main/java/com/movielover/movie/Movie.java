@@ -1,5 +1,6 @@
-package com.movie;
+package com.movielover.movie;
 
+import com.movielover.review.Review;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
