@@ -36,4 +36,10 @@ public class MovieController {
     public void deleteMovie(@PathVariable String id) {
        movieService.deleteMovie(id);
     }
+
+    @PutMapping("/{id}")
+    public void updateMovie(@PathVariable("id") String id, @RequestParam String title) {
+        movieService.updateMovie(id, title);
+    }
+
 }
